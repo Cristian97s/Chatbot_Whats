@@ -1,0 +1,19 @@
+MIT License
+
+Copyright (c) 2025 Junietza Lopéz, Bismarck Suazo, Cristian Alemán
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+1. **Uso educativo y personal**: Este software ha sido desarrollado para fines educativos, demostrativos y personales. Su uso en entornos comerciales o masivos queda bajo la responsabilidad del usuario y puede estar sujeto a restricciones de WhatsApp.
+
+2. The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+3. **Sin garantía**: El software se proporciona "tal cual", sin garantía de ningún tipo, expresa o implícita, incluyendo, entre otras, las garantías de comerciabilidad, idoneidad para un propósito particular y no infracción. En ningún caso los autores o titulares de los derechos de autor serán responsables de cualquier reclamo, daños u otra responsabilidad, ya sea en una acción de contrato, agravio o de otra manera, que surja del uso del software o de su interacción con él.
+
+**Advertencia**: Este software interactúa con WhatsApp Web. Su uso indebido o masivo puede causar bloqueos de cuenta. El autor no se responsabiliza por las acciones del usuario.
