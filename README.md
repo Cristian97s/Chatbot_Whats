@@ -80,7 +80,7 @@ Chatbot_Whats/
 ├─ Chatbot_Whats_POO.py    # Script principal
 ├─ CustomTkinter_Chatbot   # Interfaz grafica
 ├─ README.md               # Documentación
-└─ requirements.txt        # Dependencias
+└─ requirements.txt        # Requerimientos
 ```
 
 ---
