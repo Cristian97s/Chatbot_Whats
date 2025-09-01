@@ -68,7 +68,8 @@ Chatbot_Whats/dist/Chatbot_Whats.exe
 Ejecuta el script principal:
 
 ```bash
-python CustomTkinter_Chatbot.py
+python CustomTkinter_Chatbot.py gui       # abre la interfaz
+python Chatbot_Whats_POO.py consola       # usa la consola
 ```
 
 ---
