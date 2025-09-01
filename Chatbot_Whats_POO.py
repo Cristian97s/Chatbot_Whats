@@ -10,6 +10,7 @@ from translate import Translator
 import time
 import requests
 import random
+import sys
 
 class Contacto:
     def __init__(self, nombre):
@@ -86,7 +87,6 @@ class WhatsAppBot:
     def cerrar(self):
         self.driver.quit()
 
-
 class QuoteTranslator:
     def __init__(self, from_lang="en", to_lang="es"):
         self.translator = Translator(from_lang=from_lang, to_lang=to_lang)
@@ -99,7 +99,6 @@ class QuoteTranslator:
         partes = [texto[i:i+480] for i in range(0, len(texto), 480)]
         traducciones = [self.translator.translate(parte) for parte in partes]
         return " ".join(traducciones)
-
 
 class Conversacion:
     def __init__(self, num_bots, total_mensajes, duracion_minutos, bots_contactos=None, min_delay=5, max_delay=15):
@@ -178,17 +177,21 @@ class Conversacion:
             bot.cerrar()
             
 if __name__ == "__main__":
-    # num_bots = int(input("¿Cuántos navegadores (sesiones de WhatsApp) quieres abrir?: "))
-    # total_mensajes = int(input("Cantidad total de mensajes a enviar: "))
-    # duracion_minutos = int(input("Duración total de la conversación (en minutos): "))
+    modo = "gui"  # valor por defecto
+    if len(sys.argv) > 1:
+        modo = sys.argv[1].lower()
 
-    # conversacion = Conversacion(num_bots, total_mensajes, duracion_minutos, min_delay=5, max_delay=12)
-    # conversacion.iniciar()
+    if modo == "consola":
+        num_bots = int(input("¿Cuántos navegadores (sesiones de WhatsApp) quieres abrir?: "))
+        total_mensajes = int(input("Cantidad total de mensajes a enviar: "))
+        duracion_minutos = int(input("Duración total de la conversación (en minutos): "))
 
-    # input("Presiona Enter para cerrar todos los navegadores...")
-    # conversacion.cerrar_todos()
-    
-    # Solo arrancar la GUI
-    from CustomTkinter_Chatbot import WhatsAppGUI  # importa tu clase GUI
-    app = WhatsAppGUI()
-    app.mainloop()
+        conversacion = Conversacion(num_bots, total_mensajes, duracion_minutos)
+        conversacion.iniciar()
+        input("Presiona Enter para cerrar todos los navegadores...")
+        conversacion.cerrar_todos()
+
+    elif modo == "gui": # Solo arrancar la GUI
+        from CustomTkinter_Chatbot import WhatsAppGUI
+        app = WhatsAppGUI()
+        app.mainloop()
