@@ -170,7 +170,11 @@ class QuoteTranslator:
         return " ".join(traducciones)
 
 class Conversacion:
-    def __init__(self, num_bots, total_mensajes, duracion_minutos, min_delay=5, max_delay=15):
+    def __init__(self, num_bots, total_mensajes, duracion_minutos, bots_contactos=None, min_delay=5, max_delay=15):
+            """
+            bots_contactos: lista de listas de Contacto
+            bots_contactos[i] -> lista de Contactos del bot i
+            """
             self.total_mensajes = total_mensajes
             self.duracion_total = duracion_minutos * 60
             self.min_delay = min_delay
@@ -179,11 +183,15 @@ class Conversacion:
 
             # 🚀 Cada bot define sus propios contactos
             for i in range(num_bots):
-                num_contactos = int(input(f"👉 ¿Cuántos contactos tiene el bot {i+1} en su WhatsApp?: "))
-                contactos = []
-                for j in range(num_contactos):
-                    nombre_contacto = input(f"Nombre del contacto {j+1} del bot {i+1}: ")
-                    contactos.append(Contacto(nombre_contacto))
+                if bots_contactos:
+                    contactos = bots_contactos[i]
+                else:
+                    num_contactos = int(input(f"👉 ¿Cuántos contactos tiene el bot {i+1} en su WhatsApp?: "))
+                    contactos = []
+                    for j in range(num_contactos):
+                        nombre_contacto = input(f"Nombre del contacto {j+1} del bot {i+1}: ")
+                        contactos.append(Contacto(nombre_contacto))
+                        
                 bot = WhatsAppBot(contactos, i+1)
                 self.bots.append(bot)
 
